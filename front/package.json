@@ -2,7 +2,7 @@
   "name": "front",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8080",
+  "proxy": "http://localhost:2000",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
@@ -10,6 +10,7 @@
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "express-validator": "^6.8.0",
+    "http-proxy-middleware": "^1.0.6",
     "proxy": "^1.0.2",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
