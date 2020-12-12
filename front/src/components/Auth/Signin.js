@@ -1,98 +1,101 @@
 import React, { Component } from "react";
-import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import axios from "axios";
+import { NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class Signin extends Component {
   constructor(props) {
     super(props);
-
-    // this.handelchange = this.handelchange.bind(this);
-    // this.LoginHandler = this.LoginHandler.bind(this);
+    this.state = {
+      email: "",
+      password: "",
+    };
+    this.handelOnClick = this.handelOnClick.bind(this);
+    this.handleChangeInput = this.handleChangeInput.bind(this);
+  }
+  handleChangeInput(e) {
+    this.setState({ [e.target.name]: e.target.value });
   }
 
-  state = {
-    email: "",
-    password: "",
-  };
-  // handleChange = (event) => {
-  //   this.setState({ password: event.target.value });
-  // };
-
-  LoginHandler = async (e) => {
+  handelOnClick = async (e) => {
     e.preventDefault();
-    var data = {
-      email: this.state.email,
-      password: this.state.password,
-    };
-
-    axios.post("http://localhost:5000/signin", data).then((response) => {
+    // console.log("ourCLient", this.state)
+    axios.post("/signinClient", this.state).then((response) => {
       console.log(response);
-      //   localStorage.setItem("token", response.data.token);
-      //   localStorage.setItem("isAdmin", response.data.isAdmin);
-      //   if (response.data.isAdmin) {
-      //     window.location.href = "/home";
-      //   } else {
-      //     window.location.href = "/";
-      //   }
-      // })
-      // .catch((error) => {
-      //   console.log(error);
     });
   };
-
-  handelchange = (e) => {
-    e.preventDefault();
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
-    console.log(this.state);
-  };
-  // componentDidMount() {
-  //   document.documentElement.scrollTop = 0;
-  // }
 
   render() {
     return (
       <div>
-        <Container>
-          <Row style={{ marginTop: "50px" }}>
-            <Col md={{ span: 6, offset: 3 }}>
-              {/* <Form onSubmit={this.handelSubmit}> */}
-              <Form>
-                <Form.Group controlId="formGroupEmail">
-                  <Form.Label>Email address</Form.Label>
-                  <Form.Control
-                    type="email"
-                    placeholder="Enter email"
-                    onChange={this.handelchange}
-                    name="email"
-                  />
-                  <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                  </Form.Text>
-                </Form.Group>
-                <Form.Group controlId="formGroupPassword">
-                  <Form.Label>Password</Form.Label>
-                  <Form.Control
-                    type="password"
-                    placeholder="Password"
-                    onChange={this.handelchange}
-                    name="password"
-                  />
-                </Form.Group>
-                <Button
-                  onClick={this.LoginHandler}
-                  variant="primary"
-                  type="submit"
+        <section className="page-section" id="contact">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-12 text-center">
+                <h2 className="section-heading text-uppercase"> Login in </h2>
+                <h3 className="section-subheading text-muted">
+                  We miss you a lot !
+                </h3>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-sm-12">
+                <form
+                  id="contactForm"
+                  name="join us"
+                  novalidate="novalidate"
+                  onSubmit={this.handelSubmit}
                 >
-                  {" "}
-                  Submit
-                </Button>
-              </Form>
-            </Col>
-          </Row>
-        </Container>
+                  <div className="row">
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <input
+                          onChange={this.handleChangeInput}
+                          name="email"
+                          className="form-control"
+                          id="email"
+                          type="email"
+                          placeholder="Your Email *"
+                          required="required"
+                          data-validation-required-message="Please enter your email address."
+                        />
+                        <p className="help-block text-danger"></p>
+                      </div>
+                    </div>
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <input
+                          onChange={this.handleChangeInput}
+                          name="password"
+                          className="form-control"
+                          id="password"
+                          type="password"
+                          placeholder="Your Password *"
+                          required="required"
+                          data-validation-required-message="Please enter your Password."
+                        />
+                        <p className="help-block text-danger"></p>
+                      </div>
+                    </div>
+
+                    <div className="clearfix"></div>
+                    <div className="col-lg-12 text-center">
+                      <div id="success"></div>
+                      <button
+                        onClick={this.handelOnClick}
+                        id=" join us "
+                        className="btn btn-primary btn-xl text-uppercase"
+                        type="submit"
+                      >
+                        join us
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     );
   }

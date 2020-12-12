@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+
+.color-nav {
+  background-color: " #eeafae";
+  font-family: "Tangerine", serif;
+  font-size: 38px;
+}
+.link {
+  color: white;
+}
+.col-md-4 {
+  /* background-color: #dea5a4; */
+  /* border-radius: 5%; */
+  font-family: "Tangerine", serif;
+  font-size: 58px;
+  color: white;
+}
+/* .col-6 .col-md-4 {
+ 
+} */
+.header {
+  padding-top: 150px;
+  padding-left: 30px;
+  /* border-end-end-radius: 50%; */
+  /* background-color: "#ff9999";  */
+}
+.button {
+  padding-left: 30px;
+}
