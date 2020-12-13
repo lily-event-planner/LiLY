@@ -14,6 +14,7 @@ const cors = require("cors");
 // routes
 const authRoute = require("./routs/auth");
 const adminRoute = require("./routs/admin/auth");
+const categoryRoute = require("./routs/category");
 
 //mongodb connect
 const mongoose = require("mongoose");
@@ -39,8 +40,9 @@ db.once("open", () => {
 app.options("*", cors());
 app.use(bodyParser());
 app.use(cors());
-app.use("/auth", authRoute);
-app.use("/admin", adminRoute);
+app.use("/api", authRoute);
+app.use("/api", adminRoute);
+app.use("/api", categoryRoute);
 
 app.use(bodyParser.json({ limit: "50mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));

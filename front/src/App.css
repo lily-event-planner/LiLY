@@ -4,7 +4,7 @@
   font-size: 28px;
 }
 .nav-link {
-  color: white;
+  color: #653c51;
   font-weight: bold;
 }
 .nav {
@@ -29,6 +29,11 @@
 }
 .button {
   padding-left: 30px;
+}
+
+.img {
+  width: 150px;
+  height: 100px;
 }
 
 /* CAZATAGORY CSS  */

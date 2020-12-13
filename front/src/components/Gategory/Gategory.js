@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Card, Row, Col, Form } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 class Gategory extends Component {
   render() {
     return (
@@ -21,9 +22,6 @@ class Gategory extends Component {
             I think we don't use background images enough and by enough I mean
             like the next card
           </p>
-          <a className="card__btn" href="" class="">
-            buy me
-          </a>
         </div>
         <div
           className="card card--14 "
@@ -42,9 +40,9 @@ class Gategory extends Component {
             I think we don't use background images enough and by enough I mean
             like the next card
           </p>
-          <a className="card__btn" href="" class="">
-            buy me
-          </a>
+          <NavLink className="card__btn" to="/signin">
+            show me
+          </NavLink>
         </div>
         <div
           className="card card--14 "

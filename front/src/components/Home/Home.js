@@ -3,14 +3,8 @@ import { Jumbotron, Container, Button, Col } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BackgroundSlider from "react-background-slider";
-import {
-  MorphIcon,
-  CloseButton,
-  NavButton,
-  PlusButton,
-} from "react-svg-buttons";
-import "./Home.css";
-// import Header from "./Header";
+import { MorphIcon } from "react-svg-buttons";
+
 class Home extends Component {
   //   constructor(props) {
   //     super(props)

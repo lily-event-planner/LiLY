@@ -1,28 +1,25 @@
-const mongoose = require('mongoose');
-const db = require('mongodb');
-const categorySchema = mongoose.Schema({
+const mongoose = require("mongoose");
 
-    name :{
-        type:String,
-        required:true,
-        min : 6,
-        max : 255
+// const {db} = require('mongodb');
+const categorySchema = mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
     },
-    img:{
-        type:String,
-        required:true,
 
+    slug: {
+      type: String,
+      required: true,
+      unique: true,
     },
-    description:{
-        type:String,
 
+    parantId: {
+      type: String,
     },
-    supCategory : {
-     type : Array
- }
-})
+  },
+  { timestamps: true }
+);
 
-
-const category = mongoose.model('category', categorySchema);
-
-module.exports = {category};
+module.exports = mongoose.model("Category", categorySchema);
