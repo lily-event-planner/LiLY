@@ -1,47 +1,73 @@
 import React, { Component } from "react";
-import { Carousel } from "react-bootstrap";
+import { Card, Row, Col, Form } from "react-bootstrap";
 class Gategory extends Component {
   render() {
     return (
-      <Carousel>
-        <Carousel.Item>
+      <div className="d-inline-flex p-2 col-example">
+        <div
+          className="card card--14 "
+          style={{
+            backgroundImage:
+              "url(   https://lowergrenofen.co.uk/wp-content/uploads/enchanted_brides_photography-89.jpg)",
+          }}
+        >
+          <h2 className="card__title">Bride Section </h2>
           <img
-            className="d-block w-100"
-            src="holder.js/800x400?text=First slide&bg=373940"
-            alt="First slide"
+            className="card__img"
+            src="   https://lowergrenofen.co.uk/wp-content/uploads/enchanted_brides_photography-89.jpg"
+            alt=""
           />
-          <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
+          <p className="card__text" id>
+            I think we don't use background images enough and by enough I mean
+            like the next card
+          </p>
+          <a className="card__btn" href="" class="">
+            buy me
+          </a>
+        </div>
+        <div
+          className="card card--14 "
+          style={{
+            backgroundImage:
+              "url(https://www.taylorhughesphotography.com/wp-content/uploads/2019/02/Morden-Hall-Wedding-Taylor-Hughes-Photography-26.jpg)",
+          }}
+        >
+          <h2 className="card__title">Groom Section </h2>
           <img
-            className="d-block w-100"
-            src="holder.js/800x400?text=Second slide&bg=282c34"
-            alt="Third slide"
+            className="card__img"
+            src="https://www.taylorhughesphotography.com/wp-content/uploads/2019/02/Morden-Hall-Wedding-Taylor-Hughes-Photography-26.jpg"
+            alt=""
           />
-
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
+          <p className="card__text" id>
+            I think we don't use background images enough and by enough I mean
+            like the next card
+          </p>
+          <a className="card__btn" href="" class="">
+            buy me
+          </a>
+        </div>
+        <div
+          className="card card--14 "
+          style={{
+            backgroundImage:
+              "url(https://thecrimsonbride.com/wp-content/uploads/2020/02/Top-Wedding-Themes-58-768x1152.jpg)",
+          }}
+        >
+          <h2 className="card__title"> Theme Party Section </h2>
           <img
-            className="d-block w-100"
-            src="holder.js/800x400?text=Third slide&bg=20232a"
-            alt="Third slide"
+            className="card__img"
+            src="https://thecrimsonbride.com/wp-content/uploads/2020/02/Top-Wedding-Themes-58-768x1152.jpg"
+            alt=""
           />
-
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
-      </Carousel>
+          <p className="card__text" id>
+            I think we don't use background images enough and by enough I mean
+            like the next card
+          </p>
+          <a className="card__btn" href="" class="">
+            buy me
+          </a>
+        </div>
+      </div>
     );
   }
 }

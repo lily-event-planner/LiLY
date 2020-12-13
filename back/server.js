@@ -1,29 +1,57 @@
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-dotenv.config();
-const Route = require("./routes/Router");
-const URL =
-  "mongodb+srv://hibatamimi:1141688Hhh.@cluster0.3obps.mongodb.net/Lily?retryWrites=true&w=majority";
-mongoose
-  .connect(URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  })
-
-  .then(() => console.log("MongoDB Connected correctly ..."))
-  .catch((err) => console.log(err));
-
+const { Router } = require("express");
 const express = require("express");
+const env = require("dotenv");
 const app = express();
+const bodyParser = require("body-parser");
+const path = require("path");
+const cors = require("cors");
+// app.use(express.static(path.join(__dirname, "build")));
 
-app.use(express.urlencoded({ extended: true })); // to parse the data
-app.use(express.json());
-app.use(express.static(__dirname + "/../front/public"));
+// app.get("/", function (req, res) {
+//   res.sendFile(path.join(__dirname, "build", "index.html"));
+// });
 
-//app.use('/users', require('./routes/users')
-app.use("/", Route);
-app.listen(5000, () => {
-  console.log("listening on 5000");
+// routes
+const authRoute = require("./routs/auth");
+const adminRoute = require("./routs/admin/auth");
+
+//mongodb connect
+const mongoose = require("mongoose");
+const { connected } = require("process");
+const URI =
+  "mongodb+srv://hibatamimi:1141688Hhh.@cluster0.3obps.mongodb.net/LiLY?retryWrites=true&w=majority";
+
+//enviroment variable
+env.config();
+
+//mongodb connect
+mongoose.connect(URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
 });
+const db = mongoose.connection;
+db.once("open", () => {
+  console.log("connected to db");
+});
+
+//midleware
+app.options("*", cors());
+app.use(bodyParser());
+app.use(cors());
+app.use("/auth", authRoute);
+app.use("/admin", adminRoute);
+
+app.use(bodyParser.json({ limit: "50mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+
+// add middleware
+app.use(express.static(path.join(__dirname, "..", "build")));
+app.use(express.static("../front/public"));
+
+// app.use(express.urlencoded({ extended: true })) // to parse the data
+// to make the content header application/json
+
+app.listen(process.env.PORT, () =>
+  console.log(`Listening on port ${process.env.PORT}`)
+);
