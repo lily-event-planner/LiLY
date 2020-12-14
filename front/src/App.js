@@ -7,6 +7,7 @@ import Signin from "./components/Auth/Signin";
 import Signup from "./components/Auth/Signup";
 import Header from "./components/Home/Header";
 import Gategory from "./components/Gategory/Gategory";
+import SupGategory from "./components/Gategory/SubGategory";
 
 import "fontsource-roboto";
 
@@ -20,6 +21,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/gategory" exact component={Gategory} />
+          <Route path="/supgategory" exact component={SupGategory} />
           <Route path="/signin" exact component={Signin} />
           <Route path="/signup" exact component={Signup} />
         </Switch>

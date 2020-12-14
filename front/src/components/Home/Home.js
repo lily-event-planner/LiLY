@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import BackgroundSlider from "react-background-slider";
 import { MorphIcon } from "react-svg-buttons";
 
+// import Header from "./Header";
 class Home extends Component {
   //   constructor(props) {
   //     super(props)
@@ -26,7 +27,9 @@ class Home extends Component {
           {/* <col-md-6> lets achive your dream </col-md-6> */}
 
           <h2 className="col-md-4"> your big day will be real ! </h2>
-          <MorphIcon type="arrowRight" href="#Home" />
+          <NavLink className="card__btn" to="/signin">
+            show me
+          </NavLink>
         </div>
       </div>
     );

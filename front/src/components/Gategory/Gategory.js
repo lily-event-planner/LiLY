@@ -4,24 +4,29 @@ import { NavLink } from "react-router-dom";
 class Gategory extends Component {
   render() {
     return (
+      // https://lowergrenofen.co.uk/wp-content/uploads/enchanted_brides_photography-89.jpg
+      // https://thecrimsonbride.com/wp-content/uploads/2020/02/Top-Wedding-Themes-58-768x1152.jpg
       <div className="d-inline-flex p-2 col-example">
         <div
           className="card card--14 "
           style={{
             backgroundImage:
-              "url(   https://lowergrenofen.co.uk/wp-content/uploads/enchanted_brides_photography-89.jpg)",
+              "url(https://media.istockphoto.com/photos/studio-shot-of-young-beautiful-woman-picture-id626891546?k=6&m=626891546&s=612x612&w=0&h=bQdiNJlc2ugun7V2kreS0Dlgi8AsDCDL79pH9qgHMGk=)",
           }}
         >
           <h2 className="card__title">Bride Section </h2>
           <img
             className="card__img"
-            src="   https://lowergrenofen.co.uk/wp-content/uploads/enchanted_brides_photography-89.jpg"
+            src="https://media.istockphoto.com/photos/studio-shot-of-young-beautiful-woman-picture-id626891546?k=6&m=626891546&s=612x612&w=0&h=bQdiNJlc2ugun7V2kreS0Dlgi8AsDCDL79pH9qgHMGk="
             alt=""
           />
           <p className="card__text" id>
-            I think we don't use background images enough and by enough I mean
-            like the next card
+            its your big day and we will make it the best day in your life , you
+            will find every thing you want here
           </p>
+          <NavLink className="card__btn" to="/signin">
+            show me
+          </NavLink>
         </div>
         <div
           className="card card--14 "
@@ -37,10 +42,10 @@ class Gategory extends Component {
             alt=""
           />
           <p className="card__text" id>
-            I think we don't use background images enough and by enough I mean
-            like the next card
+            its your big day and we will make it the best day in your life , you
+            will find every thing you want here
           </p>
-          <NavLink className="card__btn" to="/signin">
+          <NavLink className="card__btn" to="/supgategory">
             show me
           </NavLink>
         </div>
@@ -48,22 +53,22 @@ class Gategory extends Component {
           className="card card--14 "
           style={{
             backgroundImage:
-              "url(https://thecrimsonbride.com/wp-content/uploads/2020/02/Top-Wedding-Themes-58-768x1152.jpg)",
+              "url(https://media.istockphoto.com/photos/beautiful-wedding-arch-of-flowers-picture-id1162366752?k=6&m=1162366752&s=612x612&w=0&h=q3pg7LF15tfJuWbltqo_Jo2XnWlIyd3WmzEZApe3Ibs=",
           }}
         >
-          <h2 className="card__title"> Theme Party Section </h2>
+          <h2 className="card__title"> Party Section </h2>
           <img
             className="card__img"
-            src="https://thecrimsonbride.com/wp-content/uploads/2020/02/Top-Wedding-Themes-58-768x1152.jpg"
+            src="https://media.istockphoto.com/photos/beautiful-wedding-arch-of-flowers-picture-id1162366752?k=6&m=1162366752&s=612x612&w=0&h=q3pg7LF15tfJuWbltqo_Jo2XnWlIyd3WmzEZApe3Ibs="
             alt=""
           />
           <p className="card__text" id>
-            I think we don't use background images enough and by enough I mean
-            like the next card
+            let us start the magic and make un forgetabel memories ever , here
+            you will find all the magic
           </p>
-          <a className="card__btn" href="" class="">
-            buy me
-          </a>
+          <NavLink className="card__btn" to="/supgategory">
+            show me
+          </NavLink>
         </div>
       </div>
     );

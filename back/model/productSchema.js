@@ -1,36 +1,37 @@
-// const mongoose = require('mongoose');
-// const db = require('mongodb');
-// const subcategorySchema = require('./subcategorySchema').subcategory;
-// const productSchema = mongoose.Schema({
+const mongoose = require("mongoose");
+const productSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    slug: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    price: {
+      type: Number,
+      required: true,
+    },
 
-//     name :{
-//         type:String,
-//         required:true,
-//         min : 6,
-//         max : 255
-//     },
-//     img:{
-//         type:String,
-//         required:true,
-//     },
-//     price:{
-//         type:String,
-//         required:true,
-//         min : 6,
-//         max : 255
-//     },
-//     description:{
-//         type:String,
+    description: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    productPictures: [{ img: { type: String } }],
 
-//     },
-//  supCategory : [{
-//     type : mongoose.Schema.Types.ObjectId ,
-//      ref:"subCategorySchema"}]
-// })
+    reviewes: [
+      {
+        userId: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+    review: String,
+  },
+  { timestamps: true }
+);
 
-
-
-// const product = mongoose.model('product', productSchema);
-
-
-// module.exports = {product};
+module.exports = mongoose.model("Product", productSchema);
