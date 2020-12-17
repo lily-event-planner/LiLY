@@ -1,36 +1,31 @@
-const Product = require('../model/productSchema').product
-const subcategory = require ('../model/subcategorySchema').subcategory
+const Product = require("../model/productSchema");
+const slugify = require("slugify");
+const shortid = require("shortid");
 
+exports.createProduct = (req, res) => {
+  const { name, price, description, category, quantity } = req.body;
+  let productPictures = [];
 
-// add one product to database 
-exports.addProduct = async(req , res) => {
-    const product = new Product({
-        name: req.body.name,
-        img: req.body.img,
-        price : req.body.price,
-        description: req.body.description,
-        subCategory: req.body.subcategory
-    })
+  if (req.files.length > 0) {
+    productPictures = req.files.map((file) => {
+      return { img: file.filename };
+    });
+  }
 
-// save one product in database 
-    try {
-        const savedProduct = await product.save();
-        res.send({ savedProduct });
+  const product = new Product({
+    name: name,
+    slug: slugify(name),
+    price,
+    description,
+    productPictures,
+    category,
+    quantity,
+  });
+
+  product.save((error, product) => {
+    if (error) return res.status(400).json({ error });
+    if (product) {
+      return res.status(201).json({ product });
     }
-    catch (err) {
-        res.status(400).send(err)
-        
-    }
-    
-}
-
-//delete one product from database 
-exports.deleteProduct = async(req ,res) => {
-    let _id = req.params.id 
-    console.log(_id)
-    let deleteProduct = await Product.findOne({_id}) 
-    console.log(deleteProduct)
-    Product.deleteOne({_id})
-    .then((Product) => res.status(200).json(deleteProduct))
-    .catch((err) => res.status(404).json({success:false}))
+  });
 };

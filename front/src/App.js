@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <Router>
         {/* <Home /> */}
-        <Header />
+        {/* <Header /> */}
         {/* <Gategory /> */}
         <Switch>
           <Route path="/" exact component={Home} />

@@ -13,6 +13,7 @@ function creatCateories(categories, parentId = null) {
     categoryList.push({
       _id: cate._id,
       name: cate.name,
+      description: cate.description,
       slug: cate.slug,
       children: creatCateories(categories, cate._id),
     });
@@ -24,6 +25,7 @@ exports.addCategory = (req, res) => {
   const categoryObj = {
     name: req.body.name,
     slug: slugify(req.body.name),
+    description: req.body.description,
   };
   if (req.body.parentId) {
     categoryObj.parentId = req.body.parentId;
