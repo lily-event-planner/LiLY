@@ -1,28 +1,53 @@
-const env = require("dotenv");
-env.config();
-const mongoose = require("mongoose");
-const userRoute = require("./routes/user");
-const categoryRoute = require("./routes/category");
-
-const URL =
-  "mongodb+srv://hibatamimi:1141688Hhh.@cluster0.3obps.mongodb.net/Lily?retryWrites=true&w=majority";
-mongoose
-  .connect(URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-  })
-  .then(() => console.log("MongoDB Connected correctly ..."))
-  .catch((err) => console.log(err));
-
+const { Router } = require("express");
 const express = require("express");
+const env = require("dotenv");
 const app = express();
+const bodyParser = require("body-parser");
+const path = require("path");
+const cors = require("cors");
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+//enviroment variable
+env.config();
 
-app.use("/", userRoute);
-// app.use("/api", categoryRoute);
+// routes
+const authRoute = require("./routs/auth");
+const adminRoute = require("./routs/admin/auth");
+const categoryRoute = require("./routs/category");
+const productRoute = require("./routs/product");
+const cartRoute = require("./routs/cart");
+//mongodb connect
+const mongoose = require("mongoose");
+const { connected } = require("process");
+const URI =
+  "mongodb+srv://hibatamimi:1141688Hhh.@cluster0.3obps.mongodb.net/LiLY?retryWrites=true&w=majority";
 
-app.listen(2000, () => console.log(`Listening on port 2000`));
+mongoose.connect(URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+});
+mongoose.set("useFindAndModify", false);
+
+const db = mongoose.connection;
+db.once("open", () => {
+  console.log("connected to db");
+});
+
+//midleware
+app.use(bodyParser.json({ limit: "50mb", extended: true }));
+app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+app.use(express.static(path.join(__dirname, "..", "build")));
+app.use(express.static("../front/public"));
+app.options("*", cors());
+app.use(bodyParser());
+app.use(cors());
+app.use("/api", authRoute);
+app.use("/api", adminRoute);
+app.use("/api", categoryRoute);
+app.use("/api", productRoute);
+app.use("/api", cartRoute);
+
+app.listen(process.env.PORT, () =>
+  console.log(`Listening on port ${process.env.PORT}`)
+);

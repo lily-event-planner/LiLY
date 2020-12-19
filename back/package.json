@@ -1,32 +1,30 @@
 {
   "name": "back",
   "version": "1.0.0",
-  "description": "back end for LiLY project",
+  "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon  server.js"
+    "start": "nodemon server.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/lily-event-planner/lily.git"
-  },
-  "author": "Hiba Tamimi",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/lily-event-planner/lily/issues"
-  },
-  "homepage": "https://github.com/lily-event-planner/lily#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
-    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-validator": "^6.8.0",
-    "http-proxy-middleware": "^1.0.6",
+    "express-validator": "^6.7.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.6",
-    "nodemon": "^2.0.6",
-    "slugify": "^1.4.6",
-    "validator": "^13.5.1"
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.1",
+    "moongoose": "0.0.5",
+    "multer": "^1.4.2",
+    "shortid": "^2.2.16",
+    "slug": "^4.0.2",
+    "slugify": "^1.4.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }

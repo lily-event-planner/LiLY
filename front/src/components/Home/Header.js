@@ -2,22 +2,43 @@ import React, { Component } from "react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-const Header = (props) => {
+import "./Home.css";
+import logo from "./logo.png";
+class  Header extends Component  {
+  render() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+    <Navbar className="color-nav" collapseOnSelect expand="lg">
+      <NavLink to="/" className="logo">
+        <img className="img " src={logo} />
+      </NavLink>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
-          <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+          <li className="nav-item">
+            <NavLink to="gategory" className="nav-link">
+              Category
+            </NavLink>
+          </li>
+          {/* <li className="nav-item">
+            <NavLink to="bride" className="nav-link">
+          Bride
+            </NavLink>
+            <NavLink to="groom" className="nav-link">
+         Groom
+            </NavLink>
+        
+            <NavLink to="weeding" className="nav-link">
+         Weeding
+            </NavLink>
+
+          </li> */}
+          <Nav.Link href="#pricing"> Our Service </Nav.Link>
+          <NavDropdown title="Contact Us" id="collasible-nav-dropdown">
+            <NavDropdown.Item href="#action/3.1"> about us </NavDropdown.Item>
             <NavDropdown.Item href="#action/3.2">
               Another action
             </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.3"> contact </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="#action/3.4">
               Separated link
@@ -40,6 +61,6 @@ const Header = (props) => {
       </Navbar.Collapse>
     </Navbar>
   );
-};
-
+}
+}
 export default Header;
