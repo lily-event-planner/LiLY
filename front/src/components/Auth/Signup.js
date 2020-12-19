@@ -29,32 +29,7 @@ class Signup extends Component {
       email: "huuu@ghgj.com",
       password: "hhhhhhhhhh",
     };
-    //   axios({
-    //     method: "post",
-    //     url: "http://localhost:5000/auth/signup",
-
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       // " Access-Control-Allow-Origin": "http://localhost:3000/",
-    //     },
-    //     data: {
-    //       firstName: "mays",
-    //       lastName: "mays",
-    //       email: "hibatamimif24@gmail.com",
-    //       password: "1141688",
-    //     },
-    //   })
-    //     .then((res) => {
-    //       if (res.status === 200) {
-    //         console.log("success ");
-    //       } else {
-    //         console.log("error");
-    //       }
-    //     })
-    //     .catch((e) => {
-    //       console.log(e);
-    //     });
-    // };
+   
     axios
       .post("http://localhost:5000/auth/signup", {
         firstName: this.state.firstName,

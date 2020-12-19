@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import { Navbar, Nav, NavDropdown, Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../../App.css";
+import "./Home.css";
 import logo from "./logo.png";
-const Header = (props) => {
+class  Header extends Component  {
+  render() {
   return (
     <Navbar className="color-nav" collapseOnSelect expand="lg">
       <NavLink to="/" className="logo">
@@ -18,6 +19,19 @@ const Header = (props) => {
               Category
             </NavLink>
           </li>
+          {/* <li className="nav-item">
+            <NavLink to="bride" className="nav-link">
+          Bride
+            </NavLink>
+            <NavLink to="groom" className="nav-link">
+         Groom
+            </NavLink>
+        
+            <NavLink to="weeding" className="nav-link">
+         Weeding
+            </NavLink>
+
+          </li> */}
           <Nav.Link href="#pricing"> Our Service </Nav.Link>
           <NavDropdown title="Contact Us" id="collasible-nav-dropdown">
             <NavDropdown.Item href="#action/3.1"> about us </NavDropdown.Item>
@@ -47,6 +61,6 @@ const Header = (props) => {
       </Navbar.Collapse>
     </Navbar>
   );
-};
-
+}
+}
 export default Header;

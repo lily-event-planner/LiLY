@@ -1,0 +1,37 @@
+.color-nav {
+    background-color: "#";
+    font-family: "Tangerine", serif;
+    font-size: 28px;
+  }
+  .nav-link {
+    color: #653c51;
+    font-weight: bold;
+  }
+  .nav {
+    color: white;
+  }
+  .col-md-4 {
+    /* background-color: #dea5a4; */
+    /* border-radius: 5%; */
+    font-family: "Tangerine", serif;
+    font-size: 58px;
+    font-weight: bold;
+    color: white;
+  }
+  /* .col-6 .col-md-4 {
+   
+  } */
+  .header {
+    padding-top: 150px;
+    padding-left: 30px;
+    /* border-end-end-radius: 50%; */
+    /* background-color: "#ff9999";  */
+  }
+  .button {
+    padding-left: 30px;
+  }
+  
+  .img {
+    width: 150px;
+    height: 100px;
+  }

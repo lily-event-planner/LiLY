@@ -3,8 +3,13 @@ import { Jumbotron, Container, Button, Col } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import BackgroundSlider from "react-background-slider";
-import { MorphIcon } from "react-svg-buttons";
-
+import {
+  MorphIcon,
+  CloseButton,
+  NavButton,
+  PlusButton,
+} from "react-svg-buttons";
+import "./Home.css";
 // import Header from "./Header";
 class Home extends Component {
   //   constructor(props) {
@@ -27,9 +32,7 @@ class Home extends Component {
           {/* <col-md-6> lets achive your dream </col-md-6> */}
 
           <h2 className="col-md-4"> your big day will be real ! </h2>
-          <NavLink className="card__btn" to="/signin">
-            show me
-          </NavLink>
+          <MorphIcon type="arrowRight" href="#Home" />
         </div>
       </div>
     );
@@ -37,3 +40,4 @@ class Home extends Component {
 }
 
 export default Home;
+

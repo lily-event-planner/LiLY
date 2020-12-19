@@ -1,151 +1,104 @@
 /* home  */
 
 /* header  */
-.color-nav {
-  background-color: "#";
-  font-family: "Tangerine", serif;
-  font-size: 28px;
-}
-.nav-link {
-  color: #653c51;
-  font-weight: bold;
-}
-.nav {
-  color: white;
-}
-.col-md-4 {
-  /* background-color: #dea5a4; */
-  /* border-radius: 5%; */
-  font-family: "Tangerine", serif;
-  font-size: 58px;
-  font-weight: bold;
-  color: white;
-}
-/* .col-6 .col-md-4 {
- 
-} */
-.header {
-  padding-top: 150px;
-  padding-left: 30px;
-  /* border-end-end-radius: 50%; */
-  /* background-color: "#ff9999";  */
-}
-.button {
-  padding-left: 30px;
-}
 
-.img {
-  width: 150px;
-  height: 100px;
-}
 
 /* CAZATAGORY CSS  */
 
-.card {
-  position: relative;
-  max-width: 29.5em;
-  max-height: 27em;
-  margin: 2rem;
-  padding: 2em;
-  background: #fff;
-}
-.card__title {
-  margin: 0 auto 1em;
-  color: #653c51;
-  text-align: center;
-  text-transform: capitalize;
-  font-family: "Tangerine", serif;
-  font-weight: bold;
-}
-.card__title {
-  margin: 0 auto 1em;
-  color: #653c51;
-  text-align: center;
-  text-transform: capitalize;
-  font-family: "Tangerine", serif;
-  font-weight: bold;
-}
 
-.card__img {
-  display: block;
-  width: 20em;
-  max-width: 100%;
-  margin: 1em auto;
-  border-radius: 2px;
-}
-.card__text {
-  margin: 2em 5%;
-  color: #646464;
-}
-.card__btn {
-  display: table;
-  padding: 0.7em 4em;
-  background: #ddba76;
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase;
-  margin: 1em auto 0;
-}
-/** * Card #14 */
-.card--14 {
-  overflow: hidden;
-  transition: all 0.3s;
-}
-.card--14 .card__text,
-.card--14 .card__title,
-.card--14 .card__img,
-.card--14 .card__btn {
-  transition: all 0.3s ease-in-out;
-}
-.card--14:hover {
-  background-color: transparent;
-  background-image: url(https://lowergrenofen.co.uk/wp-content/uploads/enchanted_brides_photography-89.jpg);
-  background-size: cover;
-}
-.card--14:hover .card__title {
-  color: #fff;
-  transform: translate3d(0, 120px, 0) scale(1.5);
-}
-.card--14:hover .card__text {
-  color: #fff;
-  transform: translate3d(0, -120px, 0) scale(1.2);
-}
-.card--14:hover .card__btn {
-  transform: translate3d(0, -120px, 0);
+ /* subcategory */
+
+/* 
+ .card {
+  width: 280px;
+  height: 360px;
+  border-radius: 15px;
+  padding: 1.5rem;
   background: white;
-  color: #333;
-}
-.card--14:hover .card__img {
-  opacity: 0;
-  transform: scale(0);
-}
-
-/* product  */
-body {
+  position: relative;
+  display: -webkit-box;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: linear-gradient(to bottom, #2193b0, #6dd5ed);
-  color: #fff;
-  font: 300 16px "Montserrat", sans-serif;
-  line-height: 20px;
+  -webkit-box-align: end;
+          align-items: flex-end;
+  -webkit-transition: 0.4s ease-out;
+  transition: 0.4s ease-out;
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
 }
-#app-container {
-  width: 500px;
-  height: 400px;
-  background: #fff;
-  border-radius: 5px;
-  background: transparent;
-  transform-style: preserve-3d;
+.card:hover {
+  -webkit-transform: translateY(20px);
+          transform: translateY(20px);
 }
-.vue-tabs {
-  box-shadow: 0 12px 32px -10px #071011;
-  border-bottom-right-radius: 5px;
-  border-bottom-left-radius: 5px;
+.card:hover:before {
+  opacity: 1;
 }
+.card:hover .info {
+  opacity: 1;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+}
+.card:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0;
+}
+.card img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+}
+.card .info {
+  position: relative;
+  z-index: 3;
+  color: white;
+  opacity: 0;
+  -webkit-transform: translateY(30px);
+          transform: translateY(30px);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.card .info h1 {
+  margin: 0px;
+}
+.card .info p {
+  letter-spacing: 1px;
+  font-size: 15px;
+  margin-top: 8px;
+}
+.card .info button {
+  padding: 0.6rem;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  background: white;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition: 0.4s ease;
+  transition: 0.4s ease;
+}
+.card .info button:hover {
+  background: dodgerblue;
+  color: white;
+}
+/* product  */
+
 /***** Nav Bar *****/
-#tabs {
+/* #tabs {
   height: 100%;
   transition: 0.3s;
 }
@@ -178,7 +131,7 @@ body {
   border-color: #071011;
 }
 /***** Tab Content *****/
-.tab .tab-content {
+/* .tab .tab-content {
   position: relative;
   top: 0;
   left: 0;
@@ -243,4 +196,4 @@ body {
   top: -25px;
   left: 0;
   padding: 0 70px;
-}
+} */ 

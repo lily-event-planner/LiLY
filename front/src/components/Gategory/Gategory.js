@@ -1,11 +1,71 @@
 import React, { Component } from "react";
 import { Card, Row, Col, Form } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link, Redirect , NavLink } from "react-router-dom";
+import axios from "axios";
+import './category.css'
 class Gategory extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      redirect: false,
+      data : this.props.data
+    }
+  }
+ handelOnClick = async (e , i) => {
+    e.preventDefault(); 
+    this.setState({
+      redirect: true ,
+      data : this.props.data[i]
+    })
+  }
+
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     redirect: false,
+  //     data : this.props.data
+  //   }
+  // }
+  // handelOnClick = async (e , i) => {
+  //   e.preventDefault(); 
+  //   this.setState({
+  //     redirect: true ,
+  //     data : this.props.data[i]
+  //   })
+  // }
+
+  // render() {
+
+    
+  //   if (this.state.redirect) {
+  //     return <Redirect to={{
+  //       pathname: '/subGategory',
+  //       state: { data: this.state.data }
+  //     }} />
+  //   } else {
+
+
+
+
+
+
+
+
+
   render() {
+
+    if (!this.props.data) {
+      // console.log(this.state.categories , 'from if')  //
+      return <span>Loading ...</span>;
+    }
+    if (this.state.redirect) {
+      return <Redirect to={{
+        pathname: '/subGategory',
+        state: { data: this.state.data }
+      }} />
+    } else {
+
     return (
-      // https://lowergrenofen.co.uk/wp-content/uploads/enchanted_brides_photography-89.jpg
-      // https://thecrimsonbride.com/wp-content/uploads/2020/02/Top-Wedding-Themes-58-768x1152.jpg
       <div className="d-inline-flex p-2 col-example">
         <div
           className="card card--14 "
@@ -14,7 +74,7 @@ class Gategory extends Component {
               "url(https://media.istockphoto.com/photos/studio-shot-of-young-beautiful-woman-picture-id626891546?k=6&m=626891546&s=612x612&w=0&h=bQdiNJlc2ugun7V2kreS0Dlgi8AsDCDL79pH9qgHMGk=)",
           }}
         >
-          <h2 className="card__title">Bride Section </h2>
+          <h2 className="card__title"> {this.props.data[0].name} </h2>
           <img
             className="card__img"
             src="https://media.istockphoto.com/photos/studio-shot-of-young-beautiful-woman-picture-id626891546?k=6&m=626891546&s=612x612&w=0&h=bQdiNJlc2ugun7V2kreS0Dlgi8AsDCDL79pH9qgHMGk="
@@ -24,9 +84,9 @@ class Gategory extends Component {
             its your big day and we will make it the best day in your life , you
             will find every thing you want here
           </p>
-          <NavLink className="card__btn" to="/signin">
-            show me
-          </NavLink>
+          <button className="card__btn"  onClick={this.handleClick} >
+           show me
+          </button>
         </div>
         <div
           className="card card--14 "
@@ -35,7 +95,7 @@ class Gategory extends Component {
               "url(https://www.taylorhughesphotography.com/wp-content/uploads/2019/02/Morden-Hall-Wedding-Taylor-Hughes-Photography-26.jpg)",
           }}
         >
-          <h2 className="card__title">Groom Section </h2>
+          <h2 className="card__title">{this.props.data[1].name} </h2>
           <img
             className="card__img"
             src="https://www.taylorhughesphotography.com/wp-content/uploads/2019/02/Morden-Hall-Wedding-Taylor-Hughes-Photography-26.jpg"
@@ -45,7 +105,7 @@ class Gategory extends Component {
             its your big day and we will make it the best day in your life , you
             will find every thing you want here
           </p>
-          <NavLink className="card__btn" to="/supgategory">
+          <NavLink className="card__btn" to="/bride">
             show me
           </NavLink>
         </div>
@@ -74,5 +134,5 @@ class Gategory extends Component {
     );
   }
 }
-
+}
 export default Gategory;
