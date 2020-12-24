@@ -27,8 +27,21 @@ As a company I can SignUp and make an account  and LogIn to my account so i can 
 Technology using :
 
 The project will used MARN technologies AS FOLLOWING :
-Front end : React Native 
+Front end : React 
 Back end : Express 
                   Express route.
 Data :   mongodb
 
+Installing Dependencies
+Backend
+Go from root directory to Backend directory
+cd Back/
+npm i
+Run the app
+npm start
+frontend
+Go from root directory to client directory
+cd front/
+npm i
+Run the app
+npm start
