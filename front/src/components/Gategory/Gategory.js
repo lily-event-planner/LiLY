@@ -7,63 +7,20 @@ class Gategory extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      redirect: false,
-      data : this.props.data
+      list : JSON.parse(localStorage.getItem("categories")),
     }
   }
- handelOnClick = async (e , i) => {
-    e.preventDefault(); 
-    this.setState({
-      redirect: true ,
-      data : this.props.data[i]
-    })
-  }
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     redirect: false,
-  //     data : this.props.data
-  //   }
-  // }
-  // handelOnClick = async (e , i) => {
-  //   e.preventDefault(); 
-  //   this.setState({
-  //     redirect: true ,
-  //     data : this.props.data[i]
-  //   })
-  // }
+  componentDidMount() {
+var data = JSON.parse(localStorage.getItem("categories"))
+this.setState({
+          list: data
+        });
 
-  // render() {
-
-    
-  //   if (this.state.redirect) {
-  //     return <Redirect to={{
-  //       pathname: '/subGategory',
-  //       state: { data: this.state.data }
-  //     }} />
-  //   } else {
-
-
-
-
-
-
-
+}
 
 
   render() {
-
-    if (!this.props.data) {
-      // console.log(this.state.categories , 'from if')  //
-      return <span>Loading ...</span>;
-    }
-    if (this.state.redirect) {
-      return <Redirect to={{
-        pathname: '/subGategory',
-        state: { data: this.state.data }
-      }} />
-    } else {
 
     return (
       <div className="d-inline-flex p-2 col-example">
@@ -71,22 +28,23 @@ class Gategory extends Component {
           className="card card--14 "
           style={{
             backgroundImage:
-              "url(https://media.istockphoto.com/photos/studio-shot-of-young-beautiful-woman-picture-id626891546?k=6&m=626891546&s=612x612&w=0&h=bQdiNJlc2ugun7V2kreS0Dlgi8AsDCDL79pH9qgHMGk=)",
+              "url(https://scontent.fjrs8-1.fna.fbcdn.net/v/t1.15752-9/131929865_136818174741719_8930870527818541224_n.png?_nc_cat=107&ccb=2&_nc_sid=ae9488&_nc_ohc=L2NZaKOqPf8AX8YIQF1&_nc_ht=scontent.fjrs8-1.fna&oh=3a4482a5381ee5cff0baf416e88a79ad&oe=6004E5F6)",
           }}
         >
-          <h2 className="card__title"> {this.props.data[0].name} </h2>
+          <h2 className="card__title"> {this.state.list[0].name} </h2>
           <img
             className="card__img"
-            src="https://media.istockphoto.com/photos/studio-shot-of-young-beautiful-woman-picture-id626891546?k=6&m=626891546&s=612x612&w=0&h=bQdiNJlc2ugun7V2kreS0Dlgi8AsDCDL79pH9qgHMGk="
+            src="https://scontent.fjrs8-1.fna.fbcdn.net/v/t1.15752-9/131929865_136818174741719_8930870527818541224_n.png?_nc_cat=107&ccb=2&_nc_sid=ae9488&_nc_ohc=L2NZaKOqPf8AX8YIQF1&_nc_ht=scontent.fjrs8-1.fna&oh=3a4482a5381ee5cff0baf416e88a79ad&oe=6004E5F6"
             alt=""
           />
           <p className="card__text" id>
-            its your big day and we will make it the best day in your life , you
-            will find every thing you want here
-          </p>
-          <button className="card__btn"  onClick={this.handleClick} >
-           show me
-          </button>
+          {this.state.list[0].description}
+          </p> 
+          <NavLink className="card__btn" to="/bride">
+      
+           show 
+        
+          </NavLink>
         </div>
         <div
           className="card card--14 "
@@ -95,7 +53,7 @@ class Gategory extends Component {
               "url(https://www.taylorhughesphotography.com/wp-content/uploads/2019/02/Morden-Hall-Wedding-Taylor-Hughes-Photography-26.jpg)",
           }}
         >
-          <h2 className="card__title">{this.props.data[1].name} </h2>
+          <h2 className="card__title"> {this.state.list[1].name} </h2>
           <img
             className="card__img"
             src="https://www.taylorhughesphotography.com/wp-content/uploads/2019/02/Morden-Hall-Wedding-Taylor-Hughes-Photography-26.jpg"
@@ -105,8 +63,10 @@ class Gategory extends Component {
             its your big day and we will make it the best day in your life , you
             will find every thing you want here
           </p>
-          <NavLink className="card__btn" to="/bride">
-            show me
+          <NavLink className="card__btn" to="/groom">
+         
+           show
+       
           </NavLink>
         </div>
         <div
@@ -116,7 +76,7 @@ class Gategory extends Component {
               "url(https://media.istockphoto.com/photos/beautiful-wedding-arch-of-flowers-picture-id1162366752?k=6&m=1162366752&s=612x612&w=0&h=q3pg7LF15tfJuWbltqo_Jo2XnWlIyd3WmzEZApe3Ibs=",
           }}
         >
-          <h2 className="card__title"> Party Section </h2>
+          <h2 className="card__title">  {this.state.list[2].name} </h2>
           <img
             className="card__img"
             src="https://media.istockphoto.com/photos/beautiful-wedding-arch-of-flowers-picture-id1162366752?k=6&m=1162366752&s=612x612&w=0&h=q3pg7LF15tfJuWbltqo_Jo2XnWlIyd3WmzEZApe3Ibs="
@@ -127,12 +87,12 @@ class Gategory extends Component {
             you will find all the magic
           </p>
           <NavLink className="card__btn" to="/supgategory">
-            show me
+            show 
           </NavLink>
         </div>
       </div>
     );
   }
 }
-}
+
 export default Gategory;

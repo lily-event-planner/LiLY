@@ -35,11 +35,11 @@ db.once("open", () => {
 });
 
 //midleware
-app.use(bodyParser.json({ limit: "50mb", extended: true }));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 app.use(express.static(path.join(__dirname, "..", "build")));
 app.use(express.static("../front/public"));
-app.options("*", cors());
+// app.options("*", cors());
 app.use(bodyParser());
 app.use(cors());
 app.use("/api", authRoute);

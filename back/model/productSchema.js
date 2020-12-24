@@ -4,7 +4,7 @@ const productSchema = new mongoose.Schema(
   {
     name: {
       type: String,
-      required: true,
+      // required: true,
       trim: true,
     },
     slug: {
@@ -27,7 +27,7 @@ const productSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    productPictures: [{ img: { type: String } }],
+    productPicture:  { type: String } ,
 
     reviewes: [
       {

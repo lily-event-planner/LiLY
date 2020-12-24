@@ -35,3 +35,7 @@
     width: 150px;
     height: 100px;
   }
+
+  .section-subheading text-muted {
+    color : white !important
+  }
