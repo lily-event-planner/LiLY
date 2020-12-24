@@ -3,7 +3,9 @@ import { Card, Row, Col, Form } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 import BackgroundSlider from "react-background-slider";
-const Dress = ({ name, price, description, productPicture }) => {
+
+
+const Suit = ({ name, price, description, productPicture }) => {
   const message = () => {
     alert("add succesfully ");
   };
@@ -25,14 +27,14 @@ const Dress = ({ name, price, description, productPicture }) => {
           duration={10}
           transition={2}
         />
-  <div className="wrapper-grey padded">
+ <div className="wrapper-grey padded">
         <div className="container">
           <div className="col-xs-12 col-sm-4">
             <div
               className="card"
               style={{
                 backgroundImage:
-                  "url(https://i.pinimg.com/564x/50/24/50/50245045ef94d53ac600feb823193343.jpg)",
+                  "url(https://i.pinimg.com/474x/5e/95/d1/5e95d13dd015f778f251c234f8a5c807.jpg)",
               }}
             >
               {/* <div className="card-category">City</div> */}
@@ -46,8 +48,8 @@ const Dress = ({ name, price, description, productPicture }) => {
                 </button>
               </div>
               <div className="card-description">
-                <h2> Satin dress </h2>
-                <p>  Modest and organza wedding dresses </p>
+                <h2> Natural green Suit </h2>
+                <p>  very luxury Natural green Suit  </p>
                 <span> 5000 Nis </span>
               </div>
             </div>
@@ -55,8 +57,9 @@ const Dress = ({ name, price, description, productPicture }) => {
         </div>
       </div>
       </div>
+    
     );
   }
 
 
-export default Dress;
+export default Suit;

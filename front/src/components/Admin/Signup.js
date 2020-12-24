@@ -23,20 +23,23 @@ class Signup extends Component {
   handelOnClick = async (e) => {
     e.preventDefault();
     console.log("ourCLient", this.state);
+    var newUser = {
+      firstName: "jkjk",
+      lastName: "kkkk",
+      email: "huuu@ghgj.com",
+      password: "hhhhhhhhhh",
+    };
+   
     axios
-      .post("http://localhost:5000/api/signup", {
+      .post("http://localhost:5000/auth/signup", {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
         email: this.state.email,
-        password: this.state.password,
+        password: this.state.email,
       })
 
       .then((response) => {
         console.log(response);
-        localStorage.setItem('token' , response.data.token)
-        if(response.data.saved){
-          window.location.href ='/'
-        }
       })
       .catch((e) => {
         console.log(e.response);

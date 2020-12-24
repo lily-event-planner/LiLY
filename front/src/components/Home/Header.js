@@ -14,49 +14,101 @@ class  Header extends Component  {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
+        
+          <NavDropdown title="Category " id="collasible-nav-dropdown">
           <li className="nav-item">
             <NavLink to="gategory" className="nav-link">
               Category
             </NavLink>
           </li>
-          {/* <li className="nav-item">
+      
+          <li className="nav-item">
             <NavLink to="bride" className="nav-link">
-          Bride
+              Bride
             </NavLink>
+          </li>
+          <li className="nav-item">
             <NavLink to="groom" className="nav-link">
-         Groom
+           Groom
             </NavLink>
-        
-            <NavLink to="weeding" className="nav-link">
-         Weeding
+          </li>
+          <li className="nav-item">
+            <NavLink to="theme" className="nav-link">
+           Theme
             </NavLink>
-
-          </li> */}
-          <Nav.Link href="#pricing"> Our Service </Nav.Link>
-          <NavDropdown title="Contact Us" id="collasible-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1"> about us </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
-              Another action
-            </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3"> contact </NavDropdown.Item>
+          </li>
             <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">
-              Separated link
-            </NavDropdown.Item>
+            </NavDropdown>
+            <NavDropdown title=" About " id="collasible-nav-dropdown">
+          <li className="nav-item">
+            <NavLink to="service" className="nav-link">
+            Our Service
+            </NavLink>
+          </li>
+      
+       
+       
+            <NavDropdown.Divider />
+            </NavDropdown>
+       
+          <NavDropdown title="Contact Us" id="collasible-nav-dropdown">
+            <NavDropdown.Item href="#action/3.1" className="nav-link">  about us </NavDropdown.Item>
+      
+            <NavDropdown.Item href="#action/3.3" className="nav-link"> contact </NavDropdown.Item>
+            <NavDropdown.Divider />
+           
           </NavDropdown>
-        </Nav>
-        <Nav>
-          {/* <Nav.Link href="#deets">Signin</Nav.Link> */}
+          <NavDropdown title="Admin " id="collasible-nav-dropdown">
           <li className="nav-item">
             <NavLink to="signin" className="nav-link">
               Signin
             </NavLink>
           </li>
+      
           <li className="nav-item">
             <NavLink to="signup" className="nav-link">
               Signup
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink to="productform" className="nav-link">
+            productform
+            </NavLink>
+          </li>
+      
+      
+            
+            <NavDropdown.Divider />
+           
+          </NavDropdown>
+          
+
+          <NavDropdown title="Join us" id="collasible-nav-dropdown">
+          <li className="nav-item">
+            <NavLink to="signin" className="nav-link">
+              Signin
+            </NavLink>
+          </li>
+      
+          <li className="nav-item">
+            <NavLink to="signup" className="nav-link">
+              Signup
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink to="card" className="nav-link">
+            Card
+            </NavLink>
+          </li>
+            <NavDropdown.Divider />
+           
+          </NavDropdown>
+
+
+          {/* <Nav.Link href="#deets">Signin</Nav.Link> */}
+         
+        
+          
         </Nav>
       </Navbar.Collapse>
     </Navbar>

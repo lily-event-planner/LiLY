@@ -1,50 +1,24 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import BackgroundSlider from "react-background-slider";
-import axios from "axios";
+import {login} from '../../Actions/auth.actions'
+import {useDispatch} from 'react-redux'
+// import axios from "axios";
 
-class Signin extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: "",
-    };
+const  Signinadmin = (props) =>  {
+const [email , setEmail] = useState('');
+const [password , setPassword] = useState('')
+const [error , setError] =  useState('')
+const dispatch = useDispatch()
 
-    this.handelOnClick = this.handelOnClick.bind(this);
-    this.handleChangeInput = this.handleChangeInput.bind(this);
+  const userLogin = (e) => {
+   e.preventDefault ()
+    const user = {
+      email , password 
+    } 
+    dispatch(login(user));
   }
-  handleChangeInput(e) {
-    this.setState({ [e.target.name]: e.target.value });
-  }
-
-  handelOnClick = async (e) => {
-    e.preventDefault();
-    console.log("ourCLient", this.state);
- 
-    axios
-      .post("http://localhost:5000/api/signin", {
-        email: this.state.email,
-        password: this.state.password,
-      
-      })
-
-      .then((response) => {
-        console.log(response);
-        localStorage.setItem('token' , response.data.token)
-        if(response.data.token){
-          window.location.href ='/'
-        }
-
-      })
-      .catch((e) => {
-        console.log(e.response);
-      });
-  };
-
-  render() {
-    
-    return (
+  return (
       <div>
         <BackgroundSlider
           images={[
@@ -58,30 +32,32 @@ class Signin extends Component {
         <Container>
           <Row style={{ marginTop: "50px" }}>
             <Col md={{ span: 6, offset: 3 }}>
-              <Form onSubmit={this.handelSubmit}>
+              <Form onSubmit = {userLogin} >
                 <Form.Group controlId="formGroupEmail">
                   <Form.Label>Email address</Form.Label>
                   <Form.Control
                     type="email"
                     placeholder="Enter email"
-                    onChange={this.handleChangeInput}
+                    value = {email}
                     name="email"
+                    onChange = {(e) => setEmail(e.target.value) }
                   />
                 </Form.Group>
                 <Form.Group controlId="formGroupEmail">
-                  <Form.Label> password </Form.Label>
+                  <Form.Label> Password </Form.Label>
                   <Form.Control
                     type="password"
                     placeholder="Enter your password "
-                    onChange={this.handleChangeInput}
+                    value = {password}
                     name="password"
+                    onChange = {(e) => setPassword(e.target.value) }
                   />
                 </Form.Group>
-
+              
                 <Button
                   variant="primary"
                   type="submit"
-                  onClick={this.handelOnClick}
+               
                 >
                   Submit
                 </Button>
@@ -92,5 +68,5 @@ class Signin extends Component {
       </div>
     );
   }
-}
-export default Signin;
+
+export default Signinadmin;

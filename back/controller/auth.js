@@ -28,6 +28,7 @@ exports.signup = (req, res) => {
       if (data) {
         return res.status(201).json({
           user: "User created sussesfully !",
+          saved : true
         });
       }
     });
@@ -37,7 +38,9 @@ exports.signup = (req, res) => {
 exports.signin = (req, res) => {
   User.findOne({ email: req.body.email }).exec((error, user) => {
     if (error) return res.status(400).json({ error });
+   
     if (user) {
+     
       if (user.authenticate(req.body.password)) {
         const token = jwt.sign(
           { _id: user._id, role: user.role },
@@ -50,7 +53,8 @@ exports.signin = (req, res) => {
         });
       } else {
         return res.status(400).json({
-          message: "Invalid Password",
+          message: "Invalid Password Mays",
+          func: user.authenticate
         });
       }
     } else {
